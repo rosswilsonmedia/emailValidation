@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container pt-4">
+        <h1 class='mb-4'>Email Validation</h1>
+        <div class='bg-danger m-5 text-white'>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <h3 class='p-4'>{{msg}}</h3>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <form class='form' action='/submit' method="POST">
+            <fieldset class='p-5'>
+                <div class="row">
+                    <label class='form-label' for='email'>Email:</label>
+                    <input class='form-control col-9' type='text' id='email' name='email'>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <input class='btn btn-dark mt-2' type='submit' value="Submit">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
